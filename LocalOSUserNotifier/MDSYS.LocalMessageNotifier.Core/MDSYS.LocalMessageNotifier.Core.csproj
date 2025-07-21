@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0-windows</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<Version>1.0.1.1</Version>
+		<AssemblyVersion>1.0.1.1</AssemblyVersion>
+		<Company>MDSYS</Company>
+		<Product>Windows Users Message Notifier</Product>
+		<Copyright>Copyright © 2023 MDSYS. All rights reserved.</Copyright>
+		<Authors>Mohanad Shamsan</Authors>
+		<Description>A utility for system administrators to send notifications to user sessions on the local machine.</Description>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Win32.SystemEvents" Version="9.0.7" />
+	</ItemGroup>
+
+</Project>
