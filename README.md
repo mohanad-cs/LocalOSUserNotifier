@@ -27,7 +27,7 @@
 
 ## **How to Use**
 
-1. Download the latest release from the [Releases](https://github.com/mohanad-cs/LocalOSUserNotifier/tree/main/LocalOSUserNotifier/ToolRelease)) Folder.  
+1. Download the latest release from the [Releases](https://github.com/mohanad-cs/LocalOSUserNotifier/tree/main/LocalOSUserNotifier/ToolRelease) Folder.  
 2. install or Upadate the Tool  
 3. Run MDSYS-LocalMessageNotifier.exe.  
 4. The application will request administrator permissions. Please accept the UAC prompt.  
