@@ -46,10 +46,6 @@ This tool is built using modern software design principles to ensure it is robus
 * **Dependency Injection (DI):** Services are registered and resolved using the Microsoft.Extensions.DependencyInjection container, promoting a decoupled and testable codebase.  
 * **Asynchronous Operations:** All potentially long-running operations (like sending messages and file I/O) are fully async, ensuring the UI remains responsive at all times.
 
-## **License**
-
-This project is licensed under the **GNU General Public License v3.0**. See the [LICENSE](https://www.google.com/search?q=LICENSE) file for full details.
-
 ## **Author**
 
 Developed by **MDSYS-Mohanad Shamsan**.
