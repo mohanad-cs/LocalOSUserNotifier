@@ -1,5 +1,6 @@
 using MDSYS.LocalMessageNotifier.Core;
 using Microsoft.Extensions.DependencyInjection;
+using System.Runtime.InteropServices;
 
 namespace MDSYS.LocalMessageNotifier.UI
 {
@@ -49,6 +50,8 @@ namespace MDSYS.LocalMessageNotifier.UI
 
         private void FrmMessageSender_Load(object? sender, EventArgs e)
         {
+            // Register this form to receive session change notifications
+            WTSRegisterSessionNotification(this.Handle, NOTIFY_FOR_ALL_SESSIONS);
             // Setup status filter checklist
             chStatusFilter.Items.AddRange(Enum.GetNames(typeof(WTSConnectState)));
             chStatusFilter.SetItemChecked(chStatusFilter.Items.IndexOf(WTSConnectState.Active.ToString()), true);
@@ -68,7 +71,7 @@ namespace MDSYS.LocalMessageNotifier.UI
             rbtSendToSelected.CheckedChanged += (s, e) => RbtSendToAll_CheckedChanged(s, e);
             txtMessage.TextChanged += TxtMessage_TextChanged;
             chUsers.ItemCheck += (s, e) => BeginInvoke(new Action(UpdateSendToGroupText));
-            _usersService.SessionsChanged += OnUserSessionsChanged;
+            //_usersService.SessionsChanged += OnUserSessionsChanged;
 
             // Initial state
             txtMessage.MaxLength = Constants.MaxMessageLength;
@@ -261,7 +264,7 @@ namespace MDSYS.LocalMessageNotifier.UI
         private void OnUserSessionsChanged(object? sender, EventArgs e) => this.Invoke(new Action(LoadUsers));
         private void OnFormClosed(object? sender, FormClosedEventArgs e)
         {
-            _usersService.SessionsChanged -= OnUserSessionsChanged;
+           // _usersService.SessionsChanged -= OnUserSessionsChanged;
         }
         private void OnFormClosing(object? sender, FormClosingEventArgs e)
         {
@@ -269,6 +272,9 @@ namespace MDSYS.LocalMessageNotifier.UI
             {
                 _cancellationTokenSource.Cancel();
             }
+            // Unregister for notifications when the form is closing
+            WTSUnRegisterSessionNotification(this.Handle);
+           // base.OnFormClosing(e);
         }
         private void UpdateSendToGroupText() => sendToGroupBox.Text = $"Send To ({chUsers.CheckedItems.Count}/{chUsers.Items.Count})";
         private void TxtMessage_TextChanged(object? sender, EventArgs e) => messageGroupBox.Text = $"Message Body ({txtMessage.Text.Length}/{Constants.MaxMessageLength})";
@@ -287,6 +293,32 @@ namespace MDSYS.LocalMessageNotifier.UI
                 chUsers.SetItemChecked(i, isSendToAll);
             }
             UpdateSendToGroupText();
+        }
+
+
+#pragma warning disable IDE1006 // Naming Styles
+        private const int WM_WTSSESSION_CHANGE = 0x2B1;
+        private const int NOTIFY_FOR_ALL_SESSIONS = 1;
+#pragma warning restore IDE1006 // Naming Styles
+
+
+        [DllImport("Wtsapi32.dll")]
+        private static extern bool WTSRegisterSessionNotification(IntPtr hWnd, int dwFlags);
+
+        [DllImport("Wtsapi32.dll")]
+        private static extern bool WTSUnRegisterSessionNotification(IntPtr hWnd);
+
+        protected override void WndProc(ref Message m)
+        {
+            // Check if the message is a session change notification
+            if (m.Msg == WM_WTSSESSION_CHANGE)
+            {
+               // _logger.LogInformation("Received WM_WTSSESSION_CHANGE message. Refreshing users.");
+                LoadUsers();
+            }
+
+            // Pass all other messages to the base class
+            base.WndProc(ref m);
         }
     }
 }

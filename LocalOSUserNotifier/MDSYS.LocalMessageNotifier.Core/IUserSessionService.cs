@@ -2,11 +2,7 @@
 {
     public interface IUserSessionService : IDisposable
     {
-        /// <summary>
-        /// Raised when a user logs on or off the system.
-        /// </summary>
-        event EventHandler? SessionsChanged;
-
+       
         /// <summary>
         /// Gets a list of users on the local machine filtered by session state.
         /// </summary>

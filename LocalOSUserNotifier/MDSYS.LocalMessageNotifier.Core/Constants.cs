@@ -5,7 +5,7 @@
         public const string MessageTemplateFileName = "MessageTemplate.json";
         public const string ToolName = "Windows Users Message Notifier";
         public const string ToolDescription = "A utility for system administrators to send notifications to user sessions on the local machine.\r\n\r\nView users by connection status (Active, Disconnected, etc.).\r\n\r\nSend targeted messages or broadcast to all filtered users.\r\n\r\nSave and reuse message templates for common announcements.\r\n\r\nDeveloped by Mohanad Shamsan.";
-        public const string ToolVersion = "1.0.1.1";
+        public const string ToolVersion = "1.0.1.2";
         public const string ToolAuthor = "MDSYS - Mohanad Shamsan";
         public const string ToolCompany = "MDSYS";
         public const string ToolCopyright = "Copyright © 2023 MDSYS. All rights reserved.";

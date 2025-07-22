@@ -7,8 +7,8 @@
 		<UseWindowsForms>true</UseWindowsForms>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<ApplicationIcon>Resources\ToolIcon.ico</ApplicationIcon>
-		<Version>1.0.1.1</Version>
-		<AssemblyVersion>1.0.1.1</AssemblyVersion>
+		<Version>1.0.1.2</Version>
+		<AssemblyVersion>1.0.1.2</AssemblyVersion>
 		<Company>MDSYS</Company>
 		<Product>Windows Users Message Notifier</Product>
 		<AssemblyTitle>MDSYS-Message Notifier</AssemblyTitle>

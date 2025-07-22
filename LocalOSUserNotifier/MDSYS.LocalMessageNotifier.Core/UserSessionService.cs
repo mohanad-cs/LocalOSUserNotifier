@@ -6,14 +6,13 @@ namespace MDSYS.LocalMessageNotifier.Core
     public sealed class UserSessionService : IUserSessionService
     {
 
-        public event EventHandler? SessionsChanged;
+
 
         public UserSessionService()
         {
-            // Subscribe to system events for automatic refresh
-            SystemEvents.SessionSwitch += SystemEvents_SessionSwitch;
+           
         }
-
+       
         public IEnumerable<WindowsUser> GetUsers(params WTSConnectState[] states)
         {
             // If no states are provided, default to only Active sessions.
@@ -74,23 +73,16 @@ namespace MDSYS.LocalMessageNotifier.Core
             return loggedInUsers;
         }
 
-        /// <summary>
-        /// Handles system-wide session change events and raises the service's event.
-        /// </summary>
-        private void SystemEvents_SessionSwitch(object? sender, SessionSwitchEventArgs e)
-        {
-            if (e.Reason == SessionSwitchReason.SessionLogon || e.Reason == SessionSwitchReason.SessionLogoff)
-            {
-                SessionsChanged?.Invoke(this, EventArgs.Empty);
-            }
-        }
+      
 
         /// <summary>
         /// Unsubscribe from system events when the service is disposed.
         /// </summary>
         public void Dispose()
         {
-            SystemEvents.SessionSwitch -= SystemEvents_SessionSwitch;
+            // SystemEvents.SessionSwitch -= SystemEvents_SessionSwitch;
+           // _sessionWatcher.EventArrived -= _sessionWatcher_EventArrived;
+
             GC.SuppressFinalize(this);
         }
 
@@ -108,7 +100,7 @@ namespace MDSYS.LocalMessageNotifier.Core
         private enum WTS_INFO_CLASS
         {
             WTSUserName = 5,
-            WTSConnectState = 9,
+            WTSConnectState = 8,
         }
 
         [StructLayout(LayoutKind.Sequential)]

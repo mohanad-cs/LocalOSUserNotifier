@@ -49,6 +49,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -218,15 +226,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:MDSYS-LocalMessageNotifier"
-        "ProductCode" = "8:{434D391C-0D1F-4390-B04F-4C00BDA27D0E}"
-        "PackageCode" = "8:{EED171AD-D4FF-4680-B830-FE2CE1C4261A}"
+        "ProductCode" = "8:{6C0ABDF2-3AAA-47CA-91F7-0528F79AEAB2}"
+        "PackageCode" = "8:{B836BA5E-A2C1-40A6-830E-ABCCAFC79455}"
         "UpgradeCode" = "8:{5AC3954B-45EA-44C0-AC6C-99264ABBB99F}"
         "AspNetVersion" = "8:"
         "RestartWWWService" = "11:FALSE"
-        "RemovePreviousVersions" = "11:FALSE"
+        "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.1"
+        "ProductVersion" = "8:1.0.2"
         "Manufacturer" = "8:MDSYS"
         "ARPHELPTELEPHONE" = "8:+967774172992"
         "ARPHELPLINK" = "8:"
