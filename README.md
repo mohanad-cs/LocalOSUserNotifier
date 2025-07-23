@@ -2,6 +2,11 @@
 
 **MDSYS-Local Message Notifier** is a powerful and intuitive desktop utility for Windows, designed for system administrators and power users who need to send real-time notifications to user sessions on a local machine. Built with a modern .NET architecture, this tool provides a reliable way to communicate system alerts, maintenance warnings, and other important messages.
 
+![home ](/images/home.png)
+
+-------------------------
+![template](/images/template.png)
+
 ## **Features**
 
 * **Dynamic User Session Discovery:** Automatically detects and displays a list of all user sessions on the machine.  
