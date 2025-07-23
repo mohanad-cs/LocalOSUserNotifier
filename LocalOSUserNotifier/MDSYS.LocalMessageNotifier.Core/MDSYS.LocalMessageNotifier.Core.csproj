@@ -4,11 +4,11 @@
 		<TargetFramework>net8.0-windows</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
-		<Version>1.0.1.2</Version>
-		<AssemblyVersion>1.0.1.2</AssemblyVersion>
+		<Version>1.0.1.3</Version>
+		<AssemblyVersion>1.0.1.3</AssemblyVersion>
 		<Company>MDSYS</Company>
 		<Product>Windows Users Message Notifier</Product>
-		<Copyright>Copyright © 2023 MDSYS. All rights reserved.</Copyright>
+		<Copyright>Copyright © 2025 MDSYS. All rights reserved.</Copyright>
 		<Authors>Mohanad Shamsan</Authors>
 		<Description>A utility for system administrators to send notifications to user sessions on the local machine.</Description>
 	</PropertyGroup>

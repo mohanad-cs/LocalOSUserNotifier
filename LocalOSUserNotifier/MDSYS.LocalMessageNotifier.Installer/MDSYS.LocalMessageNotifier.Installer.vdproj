@@ -56,6 +56,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
         "Release"
@@ -226,15 +234,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:MDSYS-LocalMessageNotifier"
-        "ProductCode" = "8:{6C0ABDF2-3AAA-47CA-91F7-0528F79AEAB2}"
-        "PackageCode" = "8:{B836BA5E-A2C1-40A6-830E-ABCCAFC79455}"
+        "ProductCode" = "8:{7BACDB78-13BC-4099-B0F6-9550ABBA33C4}"
+        "PackageCode" = "8:{459555F3-6419-4BD0-BD11-FDAC7BC0F9F7}"
         "UpgradeCode" = "8:{5AC3954B-45EA-44C0-AC6C-99264ABBB99F}"
         "AspNetVersion" = "8:"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.2"
+        "ProductVersion" = "8:1.0.3"
         "Manufacturer" = "8:MDSYS"
         "ARPHELPTELEPHONE" = "8:+967774172992"
         "ARPHELPLINK" = "8:"
