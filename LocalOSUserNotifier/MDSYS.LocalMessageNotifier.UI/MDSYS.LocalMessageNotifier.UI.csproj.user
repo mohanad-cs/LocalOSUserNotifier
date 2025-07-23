@@ -4,6 +4,9 @@
     <Compile Update="AboutBox.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Controls\UsersCheckedListBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Update="FrmMessageSender.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -1,4 +1,6 @@
-﻿namespace MDSYS.LocalMessageNotifier.UI
+﻿using MDSYS.LocalMessageNotifier.UI.Controls;
+
+namespace MDSYS.LocalMessageNotifier.UI
 {
     partial class FrmMessageSender
     {
@@ -31,7 +33,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMessageSender));
             sendToGroupBox = new GroupBox();
             rbtSendToSelected = new RadioButton();
-            chUsers = new CheckedListBox();
+            chUsers = new UsersCheckedListBox();
             rbtSendToAll = new RadioButton();
             messageGroupBox = new GroupBox();
             txtMessage = new RichTextBox();
@@ -279,7 +281,7 @@
         private GroupBox sendToGroupBox;
         private RadioButton rbtSendToSelected;
         private RadioButton rbtSendToAll;
-        private CheckedListBox chUsers;
+        private UsersCheckedListBox chUsers;
         private GroupBox messageGroupBox;
         private RichTextBox txtMessage;
         private GroupBox statusFilterGroupBox;

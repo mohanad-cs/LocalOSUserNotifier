@@ -43,7 +43,8 @@ namespace MDSYS.LocalMessageNotifier.UI
             };
             this.Load += FrmMessageSender_Load;
             this.FormClosed += OnFormClosed;
-            this.FormClosing += OnFormClosing; ;
+            this.FormClosing += OnFormClosing;
+            
         }
 
 
@@ -184,15 +185,26 @@ namespace MDSYS.LocalMessageNotifier.UI
                     : selectedUsers.Select(u => u.SessionId).ToList();
                 btnSend_Cancel.Image = Properties.Resources.cancelMessage;
                 statusProgressBar.Visible = true;
-                UpdateStatus($"Sending to {targets.Count} target(s)...");
+
+                UpdateStatus($"Sending to {selectedUsers.Count} User(s)...");
                 int successCount = 0;
                 foreach (var target in targets)
                 {
                     var (success, output) = await _messageService.SendMessageAsync(target, txtMessage.Text, _cancellationTokenSource.Token);
                     if (success)
                     {
-                        successCount++;
-                        UpdateProgressBar((int)((double)successCount / targets.Count * 100));
+                        if (target.Equals("*"))
+                        {
+
+                            UpdateProgressBar(100);
+                            successCount= selectedUsers.Count;
+                        }
+                        else
+                        {
+                            successCount++;
+                            UpdateProgressBar((int)((double)successCount / targets.Count * 100));
+                        }
+                       
                     }
                     else
                     {
@@ -209,7 +221,7 @@ namespace MDSYS.LocalMessageNotifier.UI
                 }
                 else if (successCount > 0)
                 {
-                    UpdateStatus($"Message(s) sent successfully to {successCount} target(s).");
+                    UpdateStatus($"Message(s) sent successfully to {successCount} User(s).");
                 }
             }
             catch (OperationCanceledException)
@@ -287,7 +299,8 @@ namespace MDSYS.LocalMessageNotifier.UI
         private void RbtSendToAll_CheckedChanged(object? sender, EventArgs e)
         {
             bool isSendToAll = rbtSendToAll.Checked;
-            chUsers.Enabled = !isSendToAll;
+           // chUsers.Enabled = !isSendToAll;
+            
             for (int i = 0; i < chUsers.Items.Count; i++)
             {
                 chUsers.SetItemChecked(i, isSendToAll);
